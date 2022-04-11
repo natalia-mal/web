@@ -4,7 +4,7 @@ function handleSubmit(e) {
 
 	// this reprezentuje ten formular, ktory odosielame
 	const ves = this.querySelector("textarea").value; // Načítame text z textarea
-	const width = document.querySelector("section:nth-child(2)").clientWidth; // Načítame aktuálnu šírku výstupného okna
+	const width = document.querySelector("div:nth-child(2)").clientWidth; // Načítame aktuálnu šírku výstupného okna
 
 	const formular = new URLSearchParams(); // Vytvoríme štruktúru, ktorá bude reprezentovať formulár
 	formular.append('ves', ves); // Pridáme tam naše hodnoty
