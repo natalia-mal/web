@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction:column;
   background-color: var(--color-dark);
-  background-image: url("computer-3163436_3.png");
+  background-image: url("background_img.png");
   background-repeat: no-repeat;
   background-size: 100%;
 } 
