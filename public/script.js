@@ -19,3 +19,19 @@ function handleSubmit(e) {
 		})
 }
 document.querySelector("form").addEventListener("submit", handleSubmit); // Nastavíme formulár, aby pri submit udalosti spustil našu handleSubmit funkciu
+
+
+var r = document.querySelector(':root');
+function changeThemeDark() {
+	r.style.setProperty('--color-green', '#44A644');
+	r.style.setProperty('--color-dark', 'black');
+	r.style.setProperty('--color-secondary', '#022601');
+	r.style.setProperty('--color-box-shadow', '#042B02');
+}
+
+function changeThemeLight() {
+	r.style.setProperty('--color-green', '#9FCF9F');
+	r.style.setProperty('--color-dark', '#191F29');
+	r.style.setProperty('--color-secondary', '#334F45');
+	r.style.setProperty('--color-box-shadow', '#2B402F');
+}
