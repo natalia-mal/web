@@ -1,8 +1,10 @@
 :root {
-  --color-green: green; /*#3FA63C; /*#2CA60A*/ /*#6AB870;*/ 
+  --color-green: #44A644;/*#006600; /*#3FA63C; /*#2CA60A*/ /*#6AB870;*/ 
   --color-light: #F2EDE4;
   --color-dark: black;
-  --color-accent: #022601;
+  --color-secondary: #022601;
+  --color-box-shadow: #042B02;
+  --color-shadow: #08FC20;
 }
 
 * {
@@ -12,116 +14,180 @@
   font-family: "Courier New", monospace;
 
 }
+
 body {
   display: flex;
   flex-direction:column;
   background-color: var(--color-dark);
   background-image: url("background_img.png");
   background-repeat: no-repeat;
-  background-size: 100%;
-} 
 
+} 
 body > section {
   flex-basis: 50%;
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
+  width: 95vw;
+  height: 200vh;
 
   display: grid;
 
-  grid-template: 8% 1fr 1fr 10% / 25% 1fr 20%;
+  grid-template: 5em 1fr 1fr 1fr 12em/1fr;
   gap: 1%;
   padding: 1%;
   box-sizing: border-box;
 }
 
+/* PRE OBRAZOVKY S WIDTH < 600 PX*/
+
 .container div {
   padding: 1em;
-  border: 1px solid var(--color-accent); /*layout pomocne čiary*/
+  border: 3px double var(--color-secondary); /*layout pomocne čiary*/
+  /*margin-right: auto;
+  margin-left: auto;*/
   margin-bottom: 2vh;
 
 }
 
 .header {
   font-style: italic;
-  grid-column: 1 / span 3;
+  grid-column: 1;
   font-family: monospace;
   text-align: center;
   color: var(--color-green);
-  text-shadow: 0em 0em 4em #08FC20;
+  text-shadow: 0em 0em 4em var(--color-shadow);
 
-}
-
-.content-large {
-  grid-row: 2 / span 2;
-}
-
-.content-small{
-  display: grid;
 }
 
 .footer {
-  grid-column: 1 / span 3;
-  column-count: 3;
   text-align: center;
+}
 
+.mena{
+  margin-bottom: 1em;
+}
+
+.content-small{
+  display: block;
 }
 
 form{
   display: grid;
-  grid-row: 2 / span 2;
+  grid-row: 1;
   width: 100%;
   height: 100%; 
   box-sizing: border-box;
 }
 
 textarea{
-  background-color: var(--color-dark);
-  /*opacity: 0.8;*/
   height: 67vh;
-  /*width: 100%;
-  height: 100%; */
   box-sizing: border-box;
   padding: 0.5em;
+
+  background-color: var(--color-dark);
   border: 1px solid var(--color-green);
 
-
+  box-shadow: 0 0 10em var(--color-box-shadow);
 }
 
 button {
-  background-color: transparent;/*#003C00*/
-  opacity: 0.8;
-  border: 1px solid;
 
-
-  color: var(--color-green);
-  font-weight: bold;
-  text-align: left;
-
-  /*padding: 0.5em;*/
   padding-top: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
   max-height: 2.5em;
-  /*margin: 0.5em;*/
 
   cursor: pointer;
+
+  background-color: transparent;/*#003C00*/
+  opacity: 0.8;
+  border: 1px solid;
+  box-shadow: 0 0 3em var(--color-box-shadow);
+
+  font-weight: bold;
+  text-align: left;
 }
 
 button:hover {
-  background-color: #003C00;
+  color: var(--color-dark);
+  background-color: var(--color-green);/*#003C00;*/
   opacity: 1.0;
-  box-shadow: 0 0 6em var(--color-accent);
-
   text-shadow: 0 0 3em white; /*#08FC20;*/
+  opacity: 0.8;
+}
+
+.bgChange{
+  display: block;
+
 }
 
 /*render*/
-img {
+#output {
   width: 100%;
   height: 100%;
+
   border: 1px solid; 
-  box-shadow: 0 0 10em #042B02;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  box-shadow: 0 0 10em var(--color-box-shadow);
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ZMENY PRE OBRAZOVKY S WIDTH >= 600 PX*/
+
+@media only screen and (min-width: 815px) {
+
+  body{
+    background-size: 100%;
+  }
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+
+    grid-template: 5em 1fr 1fr 10% / 30% 1fr 10%;
+  }
+
+  .header {
+    grid-column: 1 / span 3;
+  }
+
+  .content-large {
+    grid-row: 2 / span 2;
+  }
+
+  .content-small {
+    grid-row: 2 / span 2;
+  }
+
+  .footer {
+    grid-column: 1 / span 3;
+    column-count: 3;
+  }
+
+  .mena{
+    margin: 0;
+  }
+
+  form{
+    grid-row: 2 / span 2;
+  }
+
+  textarea{
+    height: 62vh;
+    margin: 1%;
+  }
+
+  button {
+    max-height: 3em;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
 }
