@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageDraw
 
 class Reader:
   def __init__(self, content, width):
@@ -225,37 +225,9 @@ class Reader:
       self.filled_circle((-x + S[0], y + S[1]), thickness/2, color)
   
   def filled_triangle(self, A, B, C, color):
-    def getY(point):
-      return point[1]
-    V = sorted([A, B, C], key=getY)
-    left = self.linePixels(V[0], V[1]) + self.linePixels(V[1], V[2])
-    right = self.linePixels(V[0], V[2])
+    draw = ImageDraw.Draw(self.img)
+    draw.polygon([(A), (B), (C)], fill = color)
 
-    Xmax = max(A[0], B[0], C[0])
-    Xmin = min(A[0], B[0], C[0])
-
-    if V[1][0] == Xmax:
-      left, right = right, left
-
-    for y in range(getY(V[0]), getY(V[2]) + 1):
-      x1 = Xmax
-      for X in left:
-        if X[1] == y and X[0] < x1:
-          x1 = X[0]
-
-      x2 = Xmin
-      for X in right:
-        if X[1] == y and X[0] > x2:
-          x2 = X[0]
-
-      if x2 < 0:
-        continue
-      if x2 > self.img.width:
-        x2 = self.img.width - 1
-      if x1 < 0:
-        x1 = 0
-
-      self.thick_line((x1, y), (x2, y), 1, color)
   def filled_rect(self, A, width, height, color):
     body = []
     for x in range(A[0], A[0]+width):

@@ -14,7 +14,7 @@
 			</header>
 		</div>
 		<div class="content-large">
-			<form method="POST" action="/render">
+			<form method="POST" action="/render" id="form">
 				<textarea id="ves" name="ves">VES v1.0 600 400</textarea>
 				<button>Zobraziť</button>
 			</form>
@@ -27,7 +27,13 @@
 		<div class="content-small"> 
 			<button onclick="changeThemeDark()" class="bgChange">Tmavý režim</button> 
 			<br><br> 
-			<button onclick="changeThemeLight()" class="bgChange">"Svetlý"" režim</button> 
+			<button onclick="changeThemeLight()" class="bgChange">"Svetlý"" režim</button>
+			<br><br> 
+			<button class="bgChange" id="clear">Zmazať</button>
+			<br><br>  
+			<button class="bgChange" id="example1">Príklad 1</button>
+			<br><br>  
+			<button class="bgChange" id="example2">Príklad 2</button>    
 		</div>
 
 
