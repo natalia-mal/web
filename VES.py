@@ -255,7 +255,7 @@ class Reader:
       if x1 < 0:
         x1 = 0
 
-      self.line((x1, y), (x2, y), color)
+      self.thick_line((x1, y), (x2, y), 1, color)
   def filled_rect(self, A, width, height, color):
     body = []
     for x in range(A[0], A[0]+width):
