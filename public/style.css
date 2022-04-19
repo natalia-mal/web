@@ -39,13 +39,11 @@ body > section {
   box-sizing: border-box;
 }
 
-/* PRE OBRAZOVKY S WIDTH < 600 PX*/
+/* PRE OBRAZOVKY S WIDTH < 815 PX*/
 
 .container div {
   padding: 1em;
   border: 3px double var(--color-secondary); /*layout pomocne čiary*/
-  /*margin-right: auto;
-  margin-left: auto;*/
   margin-bottom: 2vh;
 
 }
@@ -113,13 +111,8 @@ button:hover {
   color: var(--color-dark);
   background-color: var(--color-green);/*#003C00;*/
   opacity: 1.0;
-  text-shadow: 0 0 3em white; /*#08FC20;*/
+  text-shadow: 0 0 3em white; 
   opacity: 0.8;
-}
-
-.bgChange{
-  display: block;
-
 }
 
 /*render*/
@@ -134,13 +127,10 @@ button:hover {
   margin-right: auto;
 
   box-shadow: 0 0 10em var(--color-box-shadow);
-
-  position: relative;
-  z-index: 1;
 }
 
 
-/* ZMENY PRE OBRAZOVKY S WIDTH >= 600 PX*/
+/* ZMENY PRE OBRAZOVKY S WIDTH >= 815 PX*/
 
 @media only screen and (min-width: 815px) {
 
